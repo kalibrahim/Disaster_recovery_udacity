@@ -122,15 +122,15 @@ def build_model():
                 base_estimator=DecisionTreeClassifier(
                     max_depth=1, class_weight='balanced'),
                 learning_rate=0.3,
-                n_estimators=200
+                n_estimators=100
             )
         ))
     ])
 
     # Set parameters for gird search
     parameters = {
-        'clf__max_depth': [10, 20, None],
-        'clf__n_estimators': [10, 20]
+        'clf__estimator__learning_rate': [0.1, 0.3],
+        'clf__estimator__n_estimators': [50, 100]
     }
 
     # Set grid search
